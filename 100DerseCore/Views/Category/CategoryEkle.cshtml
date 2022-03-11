@@ -1,0 +1,25 @@
+﻿@model _100DerseCore.Models.Category
+@{
+    ViewData["Title"] = "CategoryEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Kategori Ekle</h2>
+
+@using (Html.BeginForm("CategoryEkle", "Category", FormMethod.Post))
+{
+    <div>
+        <div class="padding:10px;">
+            <label>Adı: </label><br />
+            @Html.TextBoxFor(q => q.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.Name,"", new { @class = "color:red" })
+        </div>
+        <div>
+            <label>Açıklama: </label><br />
+            @Html.TextAreaFor(q => q.Desc, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px;">
+            <button class="btn btn-primary">Ekle</button>
+        </div>
+    </div>
+}

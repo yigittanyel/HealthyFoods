@@ -1,0 +1,42 @@
+﻿@model _100DerseCore.Models.Food
+
+@{
+    ViewData["Title"] = "FoodGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yiyecek Bilgileri</h2>
+@using (Html.BeginForm("FoodGuncelle", "Food", FormMethod.Post))
+{
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.FoodId)
+    <div>
+        <label>Adı: </label><br />
+        @Html.TextAreaFor(q => q.FName, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Açıklama: </label><br />
+        @Html.TextAreaFor(q => q.FoodDesc, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Image: </label><br />
+        @Html.TextAreaFor(q => q.ImageUrl, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Price: </label><br />
+        @Html.TextAreaFor(q => q.Price, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Stock: </label><br />
+        @Html.TextAreaFor(q => q.Stock, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kategorisi: </label><br />
+        @Html.DropDownListFor(q => q.CategoryId, (List<SelectListItem>)ViewBag.dr, "Lütfen seçiniz: ", new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</div>
+}
+

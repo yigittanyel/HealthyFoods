@@ -1,0 +1,31 @@
+﻿@model _100DerseCore.Models.Category
+@{
+    ViewData["Title"] = "CategoryGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Kategori Bilgileri</h2>
+@using (Html.BeginForm("CategoryGuncelle", "Category", FormMethod.Post))
+{
+<div class="padding:10px;">
+    @Html.HiddenFor(x => x.CategoryId)
+    <div>
+        <label>Ad: </label><br />
+        @Html.TextAreaFor(q => q.Name, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Açıklama: </label><br />
+        @Html.TextAreaFor(q => q.Desc, new { @class = "form-control" })
+    </div>
+    <!--<div>
+        <label>Durum: </label><br />-->
+        @*<span class="d1">@Html.DropDownListFor(q => q.CategoryStatus, (List<SelectListItem>)ViewBag.dr, "Lütfen seçiniz: ", new { @class = "form-control" })</span>*@
+        <!--@Html.TextAreaFor(q => q.CategoryStatus, new { @class = "form-control" })
+    </div>-->
+    <div style="margin-top:15px;">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</div>
+}
+
